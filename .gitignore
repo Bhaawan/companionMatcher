@@ -1,0 +1,15 @@
+# Java and IntelliJ
+*.class
+*.jar
+*.war
+*.log
+*.db
+*.sqlite
+.idea/
+*.iml
+target/
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
