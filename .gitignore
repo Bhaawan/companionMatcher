@@ -4,10 +4,12 @@
 *.war
 *.log
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 .idea/
 *.iml
-target/
+target/x
 bin/
 
 # OS

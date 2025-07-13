@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Companion Matcher</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<h1>Companion Matcher</h1>
+
+<form id="userForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="number" id="age" placeholder="Age" required />
+    <input type="text" id="interests" placeholder="Interests (comma separated)" required />
+    <button type="submit">Add User</button>
+</form>
+
+<div class="controls">
+    <button onclick="fetchUsers()">Show All Users</button>
+    <button onclick="deleteAll()">Delete All Users</button>
+</div>
+
+<div id="userList"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
