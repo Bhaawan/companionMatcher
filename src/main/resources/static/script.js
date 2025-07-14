@@ -1,6 +1,5 @@
-const API_URL = ""; // leave empty since you're serving from Spring Boot
+const API_URL = "";
 
-// Handle form submit
 document.getElementById("userForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("name").value.trim();
@@ -28,7 +27,6 @@ document.getElementById("userForm").addEventListener("submit", async (e) => {
   fetchUsers();
 });
 
-// Fetch all users
 async function fetchUsers() {
   const res = await fetch(`${API_URL}/getAll`);
   const users = await res.json();
@@ -54,7 +52,6 @@ async function fetchUsers() {
   });
 }
 
-// Delete user by username
 async function deleteUser(username) {
   const res = await fetch(`${API_URL}/delete/${username}`, { method: "DELETE" });
   const msg = await res.text();
@@ -62,7 +59,6 @@ async function deleteUser(username) {
   fetchUsers();
 }
 
-// Delete all users
 async function deleteAll() {
   if (!confirm("Are you sure you want to delete all users?")) return;
   const res = await fetch(`${API_URL}/deleteAll`, { method: "DELETE" });
@@ -71,7 +67,6 @@ async function deleteAll() {
   fetchUsers();
 }
 
-// Get matches for a user
 async function matchUser(username) {
   const res = await fetch(`${API_URL}/getInterest/${username}`);
   const users = await res.json();
