@@ -5,10 +5,7 @@ import com.bhaawan.companionMatcher.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -56,14 +53,15 @@ public class UserService {
         userRepo.deleteAll();
     }
 
-    public boolean deleteOneUser(String username){
-        Optional<UserModel> user=userRepo.findByNameIgnoreCase(username);
+    public boolean deleteOneUser(Long id){
+        List<UserModel> allUsers=userRepo.findAll();
 
-        if(user.isPresent()){
-            userRepo.delete(user.get());
-            return true;
+        for(UserModel user:allUsers){
+            if(Objects.equals(user.getId(), id)){
+                userRepo.delete(user);
+                return true;
+            }
         }
-
         return false;
     }
 }

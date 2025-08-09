@@ -47,7 +47,7 @@ async function fetchUsers() {
     div.innerHTML = `
       <strong>${user.name}</strong> (Age: ${user.age})<br>
       Interests: ${user.interests.join(", ")}<br>
-      <button onclick="deleteUser('${user.name}')">Delete</button>
+      <button onclick="deleteUser('${user.id}', '${user.name}')">Delete</button>
       <button onclick="matchUser('${user.name}')">Find Matches</button>
     `;
     list.appendChild(div);
@@ -55,8 +55,8 @@ async function fetchUsers() {
 }
 
 // Delete user by username
-async function deleteUser(username) {
-  const res = await fetch(`${API_URL}/delete/${username}`, { method: "DELETE" });
+async function deleteUser(id,name) {
+  const res = await fetch(`${API_URL}/delete/${id}/${name}`, { method: "DELETE" });
   const msg = await res.text();
   alert(msg);
   fetchUsers();

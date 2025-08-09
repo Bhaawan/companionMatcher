@@ -42,15 +42,15 @@ public class UserController {
         return ResponseEntity.ok("All users deleted");
     }
 
-    @DeleteMapping("/delete/{username}")
-    public ResponseEntity<String> deleteAll(@PathVariable String username){
-        boolean deleted=userService.deleteOneUser(username);
+    @DeleteMapping("/delete/{id}/{name}")
+    public ResponseEntity<String> deleteAll(@PathVariable Long id, @PathVariable String name){
+        boolean deleted=userService.deleteOneUser(id);
 
         if(deleted){
-            return ResponseEntity.ok("user "+username+" deleted successfully");
+            return ResponseEntity.ok("user "+name+" deleted successfully");
         }
         else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("user "+username+" NOT found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("user "+name+" NOT found");
         }
     }
 }
